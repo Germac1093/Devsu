@@ -1,4 +1,4 @@
-package com.pages;
+package com;
 
 
 import com.utils.ScreenShots;

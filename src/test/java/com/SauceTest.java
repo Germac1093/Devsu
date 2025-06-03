@@ -1,5 +1,8 @@
-package com.pages;
+package com;
 
+import com.pages.CartPage;
+import com.pages.CheckOutPage;
+import com.pages.LoginPage;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 
