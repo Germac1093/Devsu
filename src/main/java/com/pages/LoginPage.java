@@ -23,7 +23,6 @@ public class LoginPage extends BasePage
     {
         super(driver);
         driver.manage().window().maximize();
-        configProperties = new ConfigReader("config.properties");
     }
 
     public void login(String name, String password)

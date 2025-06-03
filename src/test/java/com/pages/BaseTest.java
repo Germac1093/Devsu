@@ -6,14 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import static com.utils.ConfigReader.getProperty;
+
 public class BaseTest {
     protected WebDriver driver;
 
     @BeforeClass
     public void setUp() {
-        // Obtener el navegador desde una variable de entorno o argumento de línea de comandos
-        String browser = System.getProperty("browser", "chrome"); // Default to chrome if not set
-        driver = WebDriverFactory.getDriver(browser);
+        driver = WebDriverFactory.getDriver();
     }
 
 //    @AfterClass

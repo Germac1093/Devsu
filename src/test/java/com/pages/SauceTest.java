@@ -18,10 +18,11 @@ public class SauceTest extends BaseTest {
     }
 
     @Test
-    public void testApp() {
+    public void testApp() throws InterruptedException {
         loginPage.navigateTo(loginPage.getConfigProperties("url"));
         loginPage.login(loginPage.getConfigProperties("username"), loginPage.getConfigProperties("password"));
         products.selectProducts();
         loadUserData.loadData();
+        Thread.sleep(10000);
     }
 }
