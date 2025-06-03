@@ -12,5 +12,17 @@ public class User {
 
     @CsvBindByName(column = "postalCode")
     private String postalCode;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
 }
 
