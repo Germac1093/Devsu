@@ -59,7 +59,7 @@ public class BasePage
     }
 
     //Navegar hasta una pagina
-    protected void navigateTo(String url)
+    public void navigateTo(String url)
     {
         driver.get(url);
     }
