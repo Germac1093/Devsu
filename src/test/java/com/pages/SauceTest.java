@@ -1,28 +1,31 @@
-package com.saucetest;
+package com.pages;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 
 public class SauceTest extends BaseTest {
+    String product1 = "Sauce Labs Backpack";
+    String product2 = "Sauce Labs Bike Light";
 
     private LoginPage loginPage;
-    private SelectProducts products;
-    private LoadData loadUserData;
+    private CartPage cartPage;
+    private CheckOutPage checkOutPage;
 
     @BeforeClass
     public void initializePages() {
-        // Inicializa las páginas después de que el WebDriver ha sido configurado en BaseTest
+
         loginPage = new LoginPage(driver);
-        products = new SelectProducts(driver);
-        loadUserData = new LoadData(driver);
+        cartPage = new CartPage(driver);
+        checkOutPage = new CheckOutPage(driver);
     }
 
     @Test
     public void testApp() throws InterruptedException {
         loginPage.navigateTo(loginPage.getConfigProperties("url"));
         loginPage.login(loginPage.getConfigProperties("username"), loginPage.getConfigProperties("password"));
-        products.selectProducts();
-        loadUserData.loadData();
-        Thread.sleep(10000);
+        cartPage.selectTowProducts(product1, product2);
+        cartPage.proceedToCheckout();
+        checkOutPage.fillUserData();
+
     }
 }

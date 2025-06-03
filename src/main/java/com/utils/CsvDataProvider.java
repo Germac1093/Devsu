@@ -1,25 +1,32 @@
 package com.utils;
 
+import com.opencsv.bean.CsvToBeanBuilder;
+import com.model.User;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
-//import org.testng.annotations.DataProvider;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class CsvDataProvider
-{
-    //@DataProvider(name = "csvDataProvider")
-    public static Object[][] csvDataProvider()
-    {
-        List<String[]> records = ReadCsv.readCSV("src/test/resources/datosComprador.csv");
+public class CsvDataProvider {
+    private static final Logger LOGGER = Logger.getLogger(CsvDataProvider.class.getName());
+    private static final String DEFAULT_FILE_PATH = "src/test/resources/user.csv";
 
-        Object[][] data = new Object[records.size()][records.get(0).length];
-        for(int i=0; i<records.size(); i++)
-        {
-            data[i] = records.get(i);
+    public static List<User> csvUserDataProvider() {
+        return csvUserDataProvider(DEFAULT_FILE_PATH);
+    }
+
+    public static List<User> csvUserDataProvider(String filePath) {
+        try (FileReader reader = new FileReader(filePath)) {
+            return new CsvToBeanBuilder<User>(reader)
+                    .withType(User.class)
+                    .build()
+                    .parse();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Error reading CSV file: " + filePath, e);
+            return Collections.emptyList();
         }
-        return data;
     }
 
-    public static void main(String[] args) {
-        Object[][] datos = CsvDataProvider.csvDataProvider();
-        System.out.println((String) (datos[0][0]));
-    }
 }

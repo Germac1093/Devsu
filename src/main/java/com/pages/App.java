@@ -1,4 +1,4 @@
-package com.saucetest;
+package com.pages;
 
 /**
  * Hello world!

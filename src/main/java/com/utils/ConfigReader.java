@@ -8,11 +8,11 @@ import java.util.logging.Logger;
 
 public class ConfigReader {
     private static final Logger LOGGER = Logger.getLogger(ConfigReader.class.getName());
-    private Properties properties;
+    private static final Properties properties = new Properties();
 
-    public ConfigReader(String fileName) {
-        properties = new Properties();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName)) {
+    static {
+        String fileName = "config.properties"; // o el nombre que uses
+        try (InputStream inputStream = ConfigReader.class.getClassLoader().getResourceAsStream(fileName)) {
             if (inputStream != null) {
                 properties.load(inputStream);
             } else {
@@ -24,7 +24,7 @@ public class ConfigReader {
         }
     }
 
-    public String getProperty(String key) {
+    public static String getProperty(String key) {
         String value = properties.getProperty(key);
         if (value == null) {
             LOGGER.warning("La propiedad con clave \"" + key + "\" no fue encontrada.");

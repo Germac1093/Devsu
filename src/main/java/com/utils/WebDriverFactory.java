@@ -1,42 +1,38 @@
 package com.utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 
 public class WebDriverFactory {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver(String browser) {
+    public static WebDriver getDriver() {
         if (driver == null) {
+            String browser = ConfigReader.getProperty("browser");
+
             switch (browser.toLowerCase()) {
                 case "chrome":
-                    System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-
+                    WebDriverManager.chromedriver().setup();
                     ChromeOptions chromeOptions = new ChromeOptions();
-                    // Puedes configurar opciones aquí si quieres
-                    // chromeOptions.addArguments("--headless");
                     driver = new ChromeDriver(chromeOptions);
                     break;
 
                 case "firefox":
-                    System.setProperty("webdriver.gecko.driver", "path/to/geckodriver.exe");
-
+                    WebDriverManager.firefoxdriver().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    // Configura opciones si deseas
                     driver = new FirefoxDriver(firefoxOptions);
                     break;
 
                 case "edge":
-                    System.setProperty("webdriver.edge.driver", "path/to/msedgedriver.exe");
-
+                    WebDriverManager.edgedriver().setup();
                     EdgeOptions edgeOptions = new EdgeOptions();
-                    // Configura opciones si deseas
                     driver = new EdgeDriver(edgeOptions);
                     break;
 

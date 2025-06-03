@@ -36,6 +36,18 @@
       <artifactId>selenium-java</artifactId>
       <version>4.28.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.36</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>6.1.0</version>
+<!--      <scope>test</scope>-->
+    </dependency>
     <!-- Dependencia para OpenCSV -->
     <dependency>
       <groupId>com.opencsv</groupId>
@@ -62,6 +74,14 @@
           </suiteXmlFiles>
         </configuration>
       </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>14</source>
+                <target>14</target>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>
