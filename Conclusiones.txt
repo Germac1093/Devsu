@@ -10,11 +10,11 @@ CONCLUSIONS - SAUCEDEMO TEST AUTOMATION
 
 5. The test fails on Chrome due to Google's built-in warnings for weak or commonly known passwords, which interfere with the automation flow. This is not a bug in the test code, but an external security feature of the browser.
 
-6. No assertions were implemented because the test was designed for the "happy path" scenario only. However, this limits the test's ability to validate failure conditions or unexpected behaviors.
+6. No assertions were implemented because the test was designed for the "happy path" scenario only. However, this limits the test's ability to validate failure conditions or unexpected behaviors. But the framework was designed to be scalable.
 
 7. A screenshot is taken at the end of the test to verify that the success message ("Thank you for your order") is displayed, serving as visual proof of test completion.
 
-8. The test can be executed easily from the terminal using Maven (`mvnw clean test`), making it CI/CD ready for future integration.
+8. The test can be executed easily from the terminal using Maven (`mvn clean test`), making it CI/CD ready for future integration.
 
 9. The required environment setup (Java 21.0.7 and Maven 3.9.7) ensures consistency across development and testing environments.
 
