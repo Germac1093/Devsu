@@ -1,75 +1,73 @@
- SAUCEDEMO TEST AUTOMATION
+SauceDemo Test Automation - Selenium WebDriver + Java + TestNG
 
-This project automates a functional test on the website https://www.saucedemo.com using Selenium WebDriver, Java, and TestNG.
+This project automates a functional end-to-end test on the https://www.saucedemo.com website using Selenium WebDriver, Java, and TestNG. It covers the full purchase flow from login to order confirmation.
 
-TEST OBJECTIVE
+=======================
+PREREQUISITES
+=======================
+- Java 21.0.7
+- Maven 3.9.7
 
-The test performs the following steps:
 
-Authenticate with username and password
+=======================
+KEY FEATURES
+=======================
+- Functional UI test automation using Selenium WebDriver
+- TestNG framework for structure
+- Data-driven testing with TestNG DataProvider
+- Reusable utilities and Page Object Model (POM)
+- Automatic screenshot capture at confirmation step
+- Configurable browser and credentials via config.properties
 
-Add two products to the cart.
+=======================
+The automated test performs the following actions:
+=======================
+- Login with valid username and password
+- Add two products to the shopping cart
+- View and verify the shopping cart contents
+- Complete the checkout form with user details
+- Finalize the purchase and verify confirmation message: "Thank you for your order"
 
-view the shopping cart
-
-complete the shopping form
-
-finalize the purchase until confirmation: "Thank you for your order"
-
+=======================
 FRAMEWORK STRUCTURE
+=======================
+- utils/: Reusable utility classes, like CsvDataProvider, WebDriverFactory, ScreenShot
 
-utils: Reusable utilities (e.g.,CsvDataProvider, WebDriverFactory, ScreenshotUtil)
+- pages/: Page Object classes
+        BasePage: Shared base methods
+        CartPage: Manages cart interactions
+        CheckoutPage: Manages the checkout process
 
-pages:
+- config/: config.properties file for environment configuration
 
-BasePage: Base class with shared functions
+- testdata/: DataProvider for dynamic input values
 
-CartPage: Handles the shopping cart
+- tests/: BaseTest: Common setup and teardown
+        SauceTest: Main end-to-end test
 
-CheckoutPage: Handles checkout flow
+- screenshots/: Stores screenshots taken after test completion
 
-config: config.properties for credentials and browser setup
+=======================
+RUNNING TESTS
+=======================
+To run the test:
+-----  `mvn clean test`
+Alternatively, if using the Maven wrapper:
+-----   `mvnw clean test`
 
-testdata: DataProvider for input data
-
-tests:
-
-BaseTest: Common test setup/teardown
-
-SauceTest: Main test logic
-
-screenshots: Folder where the confirmation screenshot is stored
-
-HOW TO RUN THE TEST
-
-REQUIREMENTS:
-
-Java version: 21.0.7
-
-Maven version: 3.9.7
-
-STEPS:
-
-Ensure Java and Maven are installed and set up correctly.
-
-Open a terminal and go to the root directory of the project.
-
-Execute the following command:
-
-`mvn clean test`
-
-Alternative
-
-`mvnw clean test` (maven wrapper)
-
+=======================
 BROWSER COMPATIBILITY
+=======================
+The test has been validated on the following browsers:
+        - Firefox
+        - Microsoft Edge
 
-This test works correctly on:
+Note:
+On Google Chrome, the test may fail due to password warning popups from the browser, which can interfere with the automation process.
 
-Firefox
-
-Edge
-
-NOTE:
-On Chrome, the test might fail because of Google's password warning popups (for weak or commonly known passwords), which interrupt the automation flow.
+=======================
+AUTHOR
+=======================
+Developed by: Gerardo Macias
+Contact: geramacias3312@gmail.com
 
