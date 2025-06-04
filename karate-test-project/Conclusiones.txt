@@ -1,0 +1,29 @@
+Conclusions - DemoBlaze API Test Project
+
+1. The API endpoints work correctly for user creation and login.
+
+2. The API returns a 200 OK status with an empty body for user creation, instead of the expected 201 Created status with user data.
+
+3. The API does not return a user ID after successful user creation, which is usually expected in RESTful APIs.
+
+4. When invalid credentials are provided, the API still returns a 200 OK status instead of a 401 Unauthorized, which is a potential security issue.
+
+5. It is recommended to update the API to return proper status codes like 201 for successful creation and 401 for unauthorized access.
+
+6. The API should return a user ID when a user is successfully created, to make tracking and managing users easier.
+
+7. Error messages should not include sensitive information, especially in production environments.
+
+8. The API should implement proper authentication and authorization mechanisms to protect sensitive operations.
+
+9. I learned the importance of correct API status codes and response formats for reliable communication between client and server.
+
+10. I also learned the value of secure API design to avoid unauthorized access and data leaks.
+
+11. Thorough testing, including edge cases and error scenarios, is key to ensuring a stable API.
+
+12. Karate's support for data-driven testing and flexible assertions improves test coverage and efficiency.
+
+13. Keeping clear and complete documentation (e.g., using Swagger or OpenAPI) is essential for better testing and easier integration.
+
+14. I hope this project shows my ability to work with the Karate framework. While my main experience is with RestAssured, I learned a lot from this project and I’m motivated to keep improving my API testing skills.

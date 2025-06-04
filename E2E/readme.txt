@@ -6,7 +6,7 @@ This project automates a functional end-to-end test on the https://www.saucedemo
 PREREQUISITES
 =======================
 - Java 21.0.7
-- Maven 3.9.7
+- Maven 3.9.6
 
 
 =======================
@@ -70,4 +70,3 @@ AUTHOR
 =======================
 Developed by: Gerardo Macias
 Contact: geramacias3312@gmail.com
-
