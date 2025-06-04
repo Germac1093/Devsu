@@ -35,6 +35,10 @@ To run all tests:
 
     `mvn clean test '-Dtest=KarateRunner'`
 
+Alternatively
+
+     `mvnw clean test '-Dtest=KarateRunner'`
+
 To run tests with a specific tag (e.g., @CreateUser):
 
     mvn test -Dkarate.options="--tags @CreateUser" -Dtest=KarateRunner
