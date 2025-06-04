@@ -1,0 +1,21 @@
+CONCLUSIONS - SAUCEDEMO TEST AUTOMATION
+
+1. The automated test successfully simulates a user journey on saucedemo.com, from login to order confirmation, following a clean and functional "happy path".
+
+2. The modular framework design (with separate utilities, page objects, WebDriver factory, and test layers) ensures good maintainability, reusability, and scalability for future test cases.
+
+3. The configuration file (config.properties) provides flexibility by allowing credentials and browser selection to be modified without touching the code.
+
+4. The test was executed correctly on Firefox and Edge browsers, showing consistent behavior across those environments.
+
+5. The test fails on Chrome due to Google's built-in warnings for weak or commonly known passwords, which interfere with the automation flow. This is not a bug in the test code, but an external security feature of the browser.
+
+6. No assertions were implemented because the test was designed for the "happy path" scenario only. However, this limits the test's ability to validate failure conditions or unexpected behaviors.
+
+7. A screenshot is taken at the end of the test to verify that the success message ("Thank you for your order") is displayed, serving as visual proof of test completion.
+
+8. The test can be executed easily from the terminal using Maven (`mvnw clean test`), making it CI/CD ready for future integration.
+
+9. The required environment setup (Java 21.0.7 and Maven 3.9.7) ensures consistency across development and testing environments.
+
+Overall, the project demonstrates a solid structure for UI automation and meets its functional testing objective successfully.
